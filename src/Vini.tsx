@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Vini: React.FC = () => {
   const [since, setSince] = useState({
@@ -15,23 +20,27 @@ const Vini: React.FC = () => {
   const [music] = useState<HTMLAudioElement>(
     new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3")
   );
+  const [showSurprise, setShowSurprise] = useState(false);
+  const [showMusic, setShowMusic] = useState(false);
+  const [audio] = useState<HTMLAudioElement>(
+    new Audio("https://cdn.jmp.sh/LRjKV8V4")
+  );
+  const [voice] = useState<HTMLAudioElement>(
+    new Audio("https://cdn.jmp.sh/ozbOB9i4")
+  );
 
   useEffect(() => {
     const startDate = new Date("2024-04-11T00:00:00");
-
     const updateCounter = () => {
       const now = new Date();
       const diff = now.getTime() - startDate.getTime();
-
       const minutes = Math.floor(diff / (1000 * 60));
       const hours = Math.floor(diff / (1000 * 60 * 60));
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const weeks = Math.floor(days / 7);
       const months = Math.floor(days / 30.44);
-
       setSince({ days, weeks, months, hours, minutes });
     };
-
     updateCounter();
     const interval = setInterval(updateCounter, 60000);
     return () => clearInterval(interval);
@@ -44,80 +53,106 @@ const Vini: React.FC = () => {
     return () => music.pause();
   }, [music]);
 
-  const handleMoonImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => setMoonImage(reader.result as string);
-      reader.readAsDataURL(file);
-    }
-  };
-
   const gallery: string[] = [
-    "/mnt/data/IMG_1624.JPG",
-    "/mnt/data/IMG_2307.JPG",
-    "/mnt/data/IMG_2514.jpg",
-    "/mnt/data/IMG_2982.jpg",
-    "/mnt/data/IMG_3781_VSCO.JPG",
-    "/mnt/data/IMG_3937.jpg",
-    "/mnt/data/fxn 2024-05-30 194746.719.jpg",
+    "https://i.imgur.com/NofTl4Z.jpeg",
+    "https://i.imgur.com/ONrakdS.jpeg",
+    "https://i.imgur.com/vxMKcYy.jpeg",
+    "https://i.imgur.com/RhHGVBj.jpeg",
+    "https://i.imgur.com/fy1p4pC.jpeg",
+    "https://i.imgur.com/o4NLM8N.jpeg",
+    "https://i.imgur.com/xmYYEv6.jpeg",
   ];
 
   return (
     <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
 
-      {[...Array(10)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-pink-300 text-2xl"
-          initial={{ y: "100vh", x: `${Math.random() * 100}%`, opacity: 0 }}
-          animate={{ y: "-10vh", opacity: 1 }}
-          transition={{ duration: 10 + Math.random() * 10, repeat: Infinity, delay: i * 1 }}
+      {/* Linha do tempo */}
+      <div className="mb-10">
+        <h2 className="text-2xl font-semibold text-orange-400 mb-4">Nossa linha do tempo 🕰️</h2>
+        <ul className="space-y-2 text-left max-w-md mx-auto">
+          <li>01/07/2021 - nossa primeira conversa 💬</li>
+          <li>09/07/2021 - dia que nos conhecemos 👀</li>
+          <li>15/11/2021 - nosso primeiro rolê 🎡</li>
+          <li>22/01/2024 - nosso primeiro beijo 💋</li>
+          <li>11/04/2024 - nosso começo 💞</li>
+        </ul>
+      </div>
+
+      {/* Botão da música */}
+      <div className="mb-6">
+        <button
+          onClick={() => {
+            audio.play();
+            setShowMusic(true);
+          }}
+          className="text-white bg-orange-400 px-4 py-2 rounded-full shadow-lg hover:bg-orange-500"
         >
-          💖
-        </motion.div>
-      ))}
+          🎵 Nossa música
+        </button>
+        {showMusic && <p className="mt-2 text-sm">Tocando: música especial 💗</p>}
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        {gallery.map((img, index) => (
-          <div key={index} className="overflow-hidden rounded-2xl shadow-lg">
-            <img
-              src={img}
-              alt={`Foto ${index + 1}`}
-              className="w-full h-64 object-cover"
-            />
+      {/* Botão da surpresa */}
+      <div className="mb-10">
+        <button
+          onClick={() => setShowSurprise(true)}
+          className="bg-pink-400 text-white px-4 py-2 rounded-full hover:bg-pink-500"
+        >
+          🎁 Clique para uma surpresa!
+        </button>
+        {showSurprise && (
+          <div className="mt-6">
+            <p className="text-lg font-semibold mb-2">🌸 Te amo além das palavras 🌸</p>
+            <video
+              controls
+              src="https://cdn.jmp.sh/video-surpresa.mp4"
+              className="mx-auto rounded-2xl w-full max-w-md"
+            ></video>
+            <div className="text-3xl mt-4 animate-pulse">🎆🌺🍍✨</div>
           </div>
-        ))}
-      </div>
-
-      <p className="max-w-2xl mx-auto text-lg mb-8">
-        A gente se encontrou como quem se reconhece. No olhar, no toque, no riso leve que escapava
-        mesmo sem motivo. Desde 11 de abril de 2024, tudo ficou mais bonito — com cada mensagem,
-        cada carinho, cada silêncio confortável. Somos amor, liberdade e parceria. ✨
-      </p>
-
-      <div className="bg-white rounded-2xl shadow-lg p-6 max-w-md mx-auto mb-8">
-        <h2 className="text-2xl font-semibold text-orange-400 mb-4">Estamos juntos há:</h2>
-        <p>{since.months} meses</p>
-        <p>{since.weeks} semanas</p>
-        <p>{since.days} dias</p>
-        <p>{since.hours} horas</p>
-        <p>{since.minutes} minutos</p>
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-xl font-medium mb-2">Imagem da lua no dia do pedido 💫</h2>
-        <input type="file" accept="image/*" onChange={handleMoonImage} />
-        {moonImage && (
-          <img
-            src={moonImage}
-            alt="Lua do dia do pedido"
-            className="mt-4 mx-auto rounded-2xl max-w-xs"
-          />
         )}
       </div>
 
+      {/* Carta com voz */}
+      <div className="mb-10">
+        <h2 className="text-xl font-semibold mb-2">💌 Uma cartinha com a minha voz</h2>
+        <button
+          onClick={() => voice.play()}
+          className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500"
+        >
+          ▶️ Ouvir mensagem
+        </button>
+      </div>
+
+      {/* Mapa simbólico */}
+      <div className="mb-10">
+        <h2 className="text-xl font-semibold mb-2">📍 Onde tudo começou</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.0113663887616!2d-40.316207!3d-20.3658066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb83f85759bca2f%3A0x598be803d66b887b!2sCEEMTI%20PROF.%20MAURA%20ABAURRE!5e0!3m2!1spt-BR!2sbr!4v1712691878004!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="300"
+          className="rounded-2xl mx-auto"
+          allowFullScreen
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      {/* Lua e descrição */}
+      <div className="mb-8">
+        <h2 className="text-xl font-medium mb-2">Imagem da lua no dia do pedido 💫</h2>
+        <img
+          src="https://i.imgur.com/m4e2ody.png"
+          alt="Lua do dia do pedido"
+          className="mt-4 mx-auto rounded-2xl max-w-xs"
+        />
+        <p className="text-sm text-gray-700 max-w-xs mx-auto mt-4">
+          <strong>Fase da Lua: 11 de abril de 2024</strong><br />
+          Neste dia, a Lua estava na fase Crescente. É melhor visualizada no oeste, após o pôr do sol, quando o sol já se pôs no horizonte. Essa é a primeira fase após a Lua Nova e é um ótimo momento para observar os detalhes da superfície lunar. A Lua está próxima do Sol no céu e permanece em grande parte escura, exceto pela borda direita, que vai ficando mais iluminada à medida que os dias avançam para a próxima fase, que é o Quarto Crescente, com 50% de iluminação.
+        </p>
+      </div>
+
+      {/* Playlist */}
       <div className="mb-10">
         <h2 className="text-xl font-semibold text-orange-500 mb-2">Nossa playlist 💿</h2>
         <iframe
