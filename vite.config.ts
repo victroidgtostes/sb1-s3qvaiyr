@@ -3,5 +3,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', 
+  base: './',
+  build: {
+    rollupOptions: {
+      external: ['swiper/css', 'swiper/css/navigation', 'swiper/css/pagination'],
+    },
+  },
 });
