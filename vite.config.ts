@@ -6,7 +6,11 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
-      external: ['swiper/css', 'swiper/css/navigation', 'swiper/css/pagination'],
-    },
-  },
+      external: [
+        'swiper/css',
+        'swiper/css/navigation',
+        'swiper/css/pagination'
+      ]
+    }
+  }
 });
