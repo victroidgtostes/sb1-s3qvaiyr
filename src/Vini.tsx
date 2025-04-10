@@ -90,17 +90,33 @@ const Vini: React.FC = () => {
           ))}
         </Swiper>
       </div>
+
       {/* Linha do tempo */}
-      <div className="mb-10">
-        <h2 className="text-2xl font-semibold text-orange-400 mb-4">Nossa linha do tempo 🕰️</h2>
-        <ul className="space-y-2 text-left max-w-md mx-auto">
-          <li>01/07/2021 - nossa primeira conversa 💬</li>
-          <li>09/07/2021 - dia que nos conhecemos 👀</li>
-          <li>15/11/2021 - nosso primeiro rolê 🎡</li>
-          <li>22/01/2024 - nosso primeiro beijo 💋</li>
-          <li>11/04/2024 - nosso começo 💞</li>
-        </ul>
-      </div>
+<div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6 mb-10">
+  <h2 className="text-2xl font-semibold text-orange-400 mb-4">Nossa Linha do Tempo 💖</h2>
+  <ul className="space-y-4 text-left text-gray-700">
+    <li>
+      <p className="font-semibold">01/07/2021</p>
+      <p className="ml-4">nossa primeira conversa 💬</p>
+    </li>
+    <li>
+      <p className="font-semibold">09/07/2021</p>
+      <p className="ml-4">dia que nos conhecemos 👀</p>
+    </li>
+    <li>
+      <p className="font-semibold">15/11/2021</p>
+      <p className="ml-4">nosso primeiro rolê 🎡</p>
+    </li>
+    <li>
+      <p className="font-semibold">22/01/2024</p>
+      <p className="ml-4">nosso primeiro beijo 💋</p>
+    </li>
+    <li>
+      <p className="font-semibold">11/04/2024</p>
+      <p className="ml-4">nosso começo 💞</p>
+    </li>
+  </ul>
+</div>
 
       {/* Botão da música */}
       <div className="mb-6">
