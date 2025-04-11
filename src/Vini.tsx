@@ -91,31 +91,36 @@ const Vini: React.FC = () => {
         </Swiper>
       </div>
 
-      {/* Linha do tempo */}
+     {/* Linha do tempo */}
 <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6 mb-10">
-  <h2 className="text-2xl font-semibold text-orange-400 mb-4">Nossa Linha do Tempo 💖</h2>
-  <ul className="space-y-4 text-left text-gray-700">
-    <li>
-      <p className="font-semibold">01/07/2021</p>
-      <p className="ml-4">nossa primeira conversa 💬</p>
-    </li>
-    <li>
-      <p className="font-semibold">09/07/2021</p>
-      <p className="ml-4">dia que nos conhecemos 👀</p>
-    </li>
-    <li>
-      <p className="font-semibold">15/11/2021</p>
-      <p className="ml-4">nosso primeiro rolê 🎡</p>
-    </li>
-    <li>
-      <p className="font-semibold">22/01/2024</p>
-      <p className="ml-4">nosso primeiro beijo 💋</p>
-    </li>
-    <li>
-      <p className="font-semibold">11/04/2024</p>
-      <p className="ml-4">nosso começo 💞</p>
-    </li>
-  </ul>
+  <h2 className="text-2xl font-semibold text-orange-400 mb-6 text-center">Nossa Linha do Tempo 💖</h2>
+  <div className="border-l-4 border-orange-300 pl-4 space-y-6">
+    <div className="relative">
+      <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
+      <p className="text-sm text-gray-600 font-semibold">01/07/2021</p>
+      <p className="text-base text-gray-800">Nossa Primeira Conversa 💬</p>
+    </div>
+    <div className="relative">
+      <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
+      <p className="text-sm text-gray-600 font-semibold">09/07/2021</p>
+      <p className="text-base text-gray-800">Dia Que Nos Conhecemos 👀</p>
+    </div>
+    <div className="relative">
+      <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
+      <p className="text-sm text-gray-600 font-semibold">15/11/2021</p>
+      <p className="text-base text-gray-800">Nosso Primeiro Rolê 🎡</p>
+    </div>
+    <div className="relative">
+      <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
+      <p className="text-sm text-gray-600 font-semibold">22/01/2024</p>
+      <p className="text-base text-gray-800">Nosso Primeiro Beijo 💋</p>
+    </div>
+    <div className="relative">
+      <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
+      <p className="text-sm text-gray-600 font-semibold">11/04/2024</p>
+      <p className="text-base text-gray-800">Nosso Começo 💞</p>
+    </div>
+  </div>
 </div>
 
       {/* Botão da música */}
