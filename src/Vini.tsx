@@ -168,11 +168,15 @@ const Vini: React.FC = () => {
         {showSurprise && (
           <div className="mt-6">
             <p className="text-lg font-semibold mb-2">🌸 Te amo além das palavras 🌸</p>
-            <video
-              controls
-              src="https://cdn.jmp.sh/video-surpresa.mp4"
-              className="mx-auto rounded-2xl w-full max-w-md"
-            ></video>
+            <a
+  href="https://drive.google.com/file/d/SEU_ID_AQUI/view?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
+>
+  📺 Assistir ao vídeo da surpresa no Drive
+</a>
+
             <div className="text-3xl mt-4 animate-pulse">🎆🌺🍍✨</div>
           </div>
         )}
