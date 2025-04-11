@@ -23,7 +23,7 @@ const Vini: React.FC = () => {
   const [showSurprise, setShowSurprise] = useState(false);
   const [showMusic, setShowMusic] = useState(false);
   const [audio] = useState<HTMLAudioElement>(
-    new Audio("https://cdn.jmp.sh/LRjKV8V4")
+    new Audio("https://vini.s-ul.eu/vsh1eBEQ")
   );
   const [voice] = useState<HTMLAudioElement>(
     new Audio("https://cdn.jmp.sh/ozbOB9i4")
