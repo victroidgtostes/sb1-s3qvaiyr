@@ -64,7 +64,7 @@ const Vini: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden text-[18px]">
+    <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden text-[20px]">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
 
       {/* Carrossel estilo Polaroid */}
@@ -124,8 +124,6 @@ const Vini: React.FC = () => {
             <p className="text-sm text-gray-600 font-semibold">11/04/2025</p>
             <p className="text-base text-green-800">Nosso 1 Ano de Namoro 🎉</p>
           </div>
-
-          {/* Futuras datas */}
           <div className="relative opacity-50 italic">
             <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
             <p className="text-sm text-gray-500 font-semibold">??/??/2025</p>
@@ -212,8 +210,8 @@ const Vini: React.FC = () => {
           alt="Lua do dia do pedido"
           className="mt-4 mx-auto rounded-2xl max-w-xs"
         />
-        <p className="text-sm text-gray-700 max-w-xs mx-auto mt-4">
-          <strong>Fase da Lua: 11 de abril de 2024</strong><br />
+        <p className="text-lg text-gray-700 max-w-xs mx-auto mt-4">
+          <strong className="text-xl">Fase da Lua: 11 de abril de 2024</strong><br />
           Neste dia, a Lua estava na fase Crescente. É melhor visualizada no oeste, após o pôr do sol, quando o sol já se pôs no horizonte. Essa é a primeira fase após a Lua Nova e é um ótimo momento para observar os detalhes da superfície lunar. A Lua está próxima do Sol no céu e permanece em grande parte escura, exceto pela borda direita, que vai ficando mais iluminada à medida que os dias avançam para a próxima fase, que é o Quarto Crescente, com 50% de iluminação.
         </p>
       </div>
@@ -245,4 +243,3 @@ const Vini: React.FC = () => {
 };
 
 export default Vini;
-
