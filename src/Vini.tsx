@@ -23,10 +23,10 @@ const Vini: React.FC = () => {
   const [showSurprise, setShowSurprise] = useState(false);
   const [showMusic, setShowMusic] = useState(false);
   const [audio] = useState<HTMLAudioElement>(
-    new Audio("https://vini.s-ul.eu/vsh1eBEQ")
+    new Audio("https://cdn.jmp.sh/LRjKV8V4")
   );
   const [voice] = useState<HTMLAudioElement>(
-    new Audio("https://vini.s-ul.eu/PmEMER5K")
+    new Audio("https://cdn.jmp.sh/ozbOB9i4")
   );
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Vini: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden">
+    <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden text-[18px]">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
 
       {/* Carrossel estilo Polaroid */}
@@ -143,8 +143,14 @@ const Vini: React.FC = () => {
       <div className="mb-6">
         <button
           onClick={() => {
-            audio.play();
-            setShowMusic(true);
+            audio.pause();
+            audio.currentTime = 0;
+            audio.load();
+            audio.play().then(() => {
+              setShowMusic(true);
+            }).catch((e) => {
+              console.error("Erro ao tocar música:", e);
+            });
           }}
           className="text-white bg-orange-400 px-4 py-2 rounded-full shadow-lg hover:bg-orange-500"
         >
@@ -159,7 +165,7 @@ const Vini: React.FC = () => {
           onClick={() => setShowSurprise(true)}
           className="bg-pink-400 text-white px-4 py-2 rounded-full hover:bg-pink-500"
         >
-          🏱 Clique para uma surpresa!
+          🎁 Clique para uma surpresa!
         </button>
         {showSurprise && (
           <div className="mt-6">
@@ -200,7 +206,7 @@ const Vini: React.FC = () => {
 
       {/* Lua e descrição */}
       <div className="mb-8">
-        <h2 className="text-xl font-medium mb-2">Imagem da lua no dia do pedido 🌫️</h2>
+        <h2 className="text-xl font-medium mb-2">Imagem da lua no dia do pedido 💫</h2>
         <img
           src="https://i.imgur.com/m4e2ody.png"
           alt="Lua do dia do pedido"
@@ -239,3 +245,4 @@ const Vini: React.FC = () => {
 };
 
 export default Vini;
+
