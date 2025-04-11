@@ -68,7 +68,7 @@ const Vini: React.FC = () => {
     <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
 
-      {/* Carrossel estilo Polaroid */}
+            {/* Carrossel estilo Polaroid */}
       <div className="max-w-2xl mx-auto mb-8">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -85,13 +85,13 @@ const Vini: React.FC = () => {
                   alt={`Foto ${index + 1}`}
                   className="w-full h-[320px] object-cover mb-3 rounded"
                 />
-                <p className="text-sm text-gray-600">Foto {index + 1}</p>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
+      </div>
+    
      {/* Linha do tempo */}
       <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6 mb-10">
         <h2 className="text-2xl font-semibold text-orange-400 mb-6 text-center">Nossa Linha do Tempo 💖</h2>
