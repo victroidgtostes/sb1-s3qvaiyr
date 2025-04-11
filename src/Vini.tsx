@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
