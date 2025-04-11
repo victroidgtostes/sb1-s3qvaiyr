@@ -26,7 +26,7 @@ const Vini: React.FC = () => {
     new Audio("https://vini.s-ul.eu/vsh1eBEQ")
   );
   const [voice] = useState<HTMLAudioElement>(
-    new Audio("https://cdn.jmp.sh/ozbOB9i4")
+    new Audio("https://vini.s-ul.eu/PmEMER5K")
   );
 
   useEffect(() => {
