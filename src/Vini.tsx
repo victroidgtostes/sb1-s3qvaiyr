@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import React from "react";
@@ -68,7 +67,7 @@ const Vini: React.FC = () => {
     <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
 
-            {/* Carrossel estilo Polaroid */}
+      {/* Carrossel estilo Polaroid */}
       <div className="max-w-2xl mx-auto mb-8">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -90,9 +89,8 @@ const Vini: React.FC = () => {
           ))}
         </Swiper>
       </div>
-      </div>
-    
-     {/* Linha do tempo */}
+
+      {/* Linha do tempo */}
       <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg p-6 mb-10">
         <h2 className="text-2xl font-semibold text-orange-400 mb-6 text-center">Nossa Linha do Tempo 💖</h2>
         <div className="border-l-4 border-orange-300 pl-4 space-y-6">
@@ -140,31 +138,6 @@ const Vini: React.FC = () => {
           </div>
         </div>
       </div>
-            <p className="text-sm text-gray-600 font-semibold">01/07/2021</p>
-            <p className="text-base text-gray-800">Nossa Primeira Conversa 💬</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 font-semibold">09/07/2021</p>
-            <p className="text-base text-gray-800">Dia Que Nos Conhecemos 👀</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 font-semibold">15/11/2021</p>
-            <p className="text-base text-gray-800">Nosso Primeiro Rolê 🎡</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 font-semibold">22/01/2024</p>
-            <p className="text-base text-gray-800">Nosso Primeiro Beijo 💋</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 font-semibold">11/04/2024</p>
-            <p className="text-base text-gray-800">Nosso Começo 💞</p>
-          </div>
-        </div>
-      </div>
 
       {/* Botão da música */}
       <div className="mb-6">
@@ -186,7 +159,7 @@ const Vini: React.FC = () => {
           onClick={() => setShowSurprise(true)}
           className="bg-pink-400 text-white px-4 py-2 rounded-full hover:bg-pink-500"
         >
-          🎁 Clique para uma surpresa!
+          🏱 Clique para uma surpresa!
         </button>
         {showSurprise && (
           <div className="mt-6">
@@ -227,7 +200,7 @@ const Vini: React.FC = () => {
 
       {/* Lua e descrição */}
       <div className="mb-8">
-        <h2 className="text-xl font-medium mb-2">Imagem da lua no dia do pedido 💫</h2>
+        <h2 className="text-xl font-medium mb-2">Imagem da lua no dia do pedido 🌫️</h2>
         <img
           src="https://i.imgur.com/m4e2ody.png"
           alt="Lua do dia do pedido"
