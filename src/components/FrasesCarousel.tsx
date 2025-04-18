@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -80,17 +80,16 @@ const FrasesCarousel = () => {
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 mb-10">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 6000 }}
-        loop={true}
+        loop={true} // permite voltar para a primeira frase depois da última
         onSlideChange={(swiper) => setCurrentFrase(swiper.realIndex)}
         className="rounded-xl"
       >
         {frases.map((frase, index) => (
           <SwiperSlide key={index}>
-            <blockquote className="text-center text-xl font-mono text-gray-700 typing-effect min-h-[5rem] flex items-center justify-center">
+            <blockquote className="text-center text-xl font-mono text-gray-700 typing-effect min-h-[7rem] flex items-center justify-center">
               {index === currentFrase ? typedText : ""}
             </blockquote>
           </SwiperSlide>
