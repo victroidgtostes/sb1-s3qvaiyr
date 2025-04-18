@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./FrasesCarousel.css";
 
-const frases = [
+const frases: string[] = [
   "Eu te amo a cada batida do meu coração",
   "Mescau",
   "Ruivio",
@@ -60,23 +60,21 @@ const FrasesCarousel = () => {
   const [currentFrase, setCurrentFrase] = useState(0);
 
   useEffect(() => {
-    const frase = frases[currentFrase];
-    if (!frase) {
-      setTypedText(""); // segurança extra
+    const fraseAtual = frases[currentFrase];
+    if (!fraseAtual || typeof fraseAtual !== "string") {
+      setTypedText("");
       return;
     }
 
     let i = 0;
     setTypedText("");
-
     const typing = setInterval(() => {
-      if (i >= frase.length) {
-        clearInterval(typing);
-        return;
-      }
-
-      setTypedText((prev) => prev + frase[i]);
-      i++;
+      setTypedText((prev) => {
+        const nextChar = fraseAtual[i];
+        i++;
+        if (i > fraseAtual.length) clearInterval(typing);
+        return prev + (nextChar || "");
+      });
     }, 40);
 
     return () => clearInterval(typing);
@@ -94,7 +92,7 @@ const FrasesCarousel = () => {
       >
         {frases.map((frase, index) => (
           <SwiperSlide key={index}>
-            <blockquote className="text-center text-2xl font-mono text-gray-700 typing-effect min-h-[10rem] flex items-center justify-center px-4">
+            <blockquote className="text-center text-2xl font-mono text-gray-700 typing-effect min-h-[10rem] flex items-center justify-center px-6">
               {index === currentFrase ? typedText : ""}
             </blockquote>
           </SwiperSlide>
