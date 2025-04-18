@@ -222,11 +222,11 @@ const Vini: React.FC = () => {
 </div>
 
 {/* Nossas frases e momentos */}
-<div className="mb-10">
-  <h3 className="text-2xl font-bold text-center text-pink-500 mb-2">
+<div className="mb-16">
+  <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2">
     ✨ Nossas frases engraçadas e fofas ✨
   </h3>
-  <p className="text-center text-sm text-gray-500 mb-4">
+  <p className="text-center text-lg text-gray-600 mb-6">
     Aquelas que só a gente entende 😄
   </p>
   <FrasesCarousel />
