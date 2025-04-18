@@ -96,86 +96,12 @@ const Vini: React.FC = () => {
         </Swiper>
       </div>
 
-      <div className="max-w-xl mx-auto bg-blue-100/70 dark:bg-blue-900/30 rounded-2xl shadow-lg p-6 mb-16 backdrop-blur-md">
-        <h2 className="text-3xl font-semibold text-orange-400 mb-6 text-center">
-          Nossa Linha do Tempo 💖
-       </h2>
-        <div className="border-l-4 border-orange-300 dark:border-orange-500 pl-4 space-y-6">
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">01/07/2021</p>
-            <p className="text-base text-gray-800 dark:text-gray-200">Nossa Primeira Conversa 💬</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">09/07/2021</p>
-            <p className="text-base text-gray-800 dark:text-gray-200">Dia Que Nos Conhecemos 👀</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">15/11/2021</p>
-            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Primeiro Rolê 🎡</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">22/01/2024</p>
-            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Primeiro Beijo 💋</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">11/04/2024</p>
-            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Começo 💞</p>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-green-400 dark:bg-green-600 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">11/04/2025</p>
-            <p className="text-base text-green-800 dark:text-green-300">Nosso 1 Ano de Namoro 🎉</p>
-          </div>
-          <div className="relative opacity-50 italic">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-500 font-semibold">??/??/2025</p>
-            <p className="text-base text-gray-600">Pedido de Casamento 💍 (em breve...)</p>
-          </div>
-          <div className="relative opacity-50 italic">
-            <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
-            <p className="text-sm text-gray-500 font-semibold">??/??/2026</p>
-            <p className="text-base text-gray-600">Dia do Casamento 💒 (em breve...)</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mb-16 bg-blue-50/70 dark:bg-gray-700/50 p-6 rounded-xl max-w-2xl mx-auto">
-        <h2 className="text-xl font-semibold mb-4 text-blue-500">💌 Uma cartinha com a minha voz</h2>
-        <button
-          onClick={() => {
-            if (!(window as any).vozTocando) {
-              const audioVoz = new Audio("https://vini.s-ul.eu/PmEMER5K");
-              audioVoz.play()
-                .then(() => {
-                  (window as any).vozAudio = audioVoz;
-                  (window as any).vozTocando = true;
-                })
-                .catch((e) => console.error("Erro ao tocar áudio da carta:", e));
-            } else {
-              const audioVoz = (window as any).vozAudio;
-              if (audioVoz) {
-                audioVoz.pause();
-                audioVoz.currentTime = 0;
-              }
-              (window as any).vozTocando = false;
-            }
-          }}
-          className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500 transition"
-        >
-          💬 Tocar / Parar carta com voz
-        </button>
-      </div>
-
-      <div className="mb-20 bg-pink-100/70 dark:bg-pink-800/50 p-6 rounded-2xl max-w-3xl mx-auto">
-        <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2 drop-shadow-md">
+      {/* Frases especiais com estilo máquina de escrever */}
+      <div className="mb-20 bg-pink-100/70 dark:bg-gray-800/50 p-6 rounded-2xl max-w-3xl mx-auto shadow-inner">
+        <h3 className="text-4xl font-extrabold text-center text-pink-600 mb-2 drop-shadow-md">
           ✨ Nossas frases engraçadas e fofas ✨
         </h3>
-        <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">Aquelas que só a gente entende 😄</p>
+        <p className="text-center text-lg text-gray-700 dark:text-gray-300 mb-6 font-mono italic">Aquelas que só a gente entende 😄</p>
         <FrasesCarousel />
       </div>
 
