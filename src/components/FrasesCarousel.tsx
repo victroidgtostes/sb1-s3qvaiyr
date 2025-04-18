@@ -92,7 +92,7 @@ const FrasesCarousel = () => {
       >
         {frases.map((frase, index) => (
           <SwiperSlide key={index}>
-            <blockquote className="bg-pink-50 border border-pink-200 shadow-lg rounded-xl p-6 text-center text-2xl font-serif text-gray-800 min-h-[16rem] flex items-center justify-center transition-all duration-300">
+            <blockquote className="bg-pink-50 border border-pink-200 shadow-lg rounded-xl p-6 text-center text-2xl font-typewriter text-gray-800 min-h-[16rem] flex items-center justify-center transition-all duration-300">
               {index === currentFrase ? typedText : ""}
             </blockquote>
           </SwiperSlide>
