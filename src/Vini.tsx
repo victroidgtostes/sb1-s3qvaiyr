@@ -95,27 +95,83 @@ const Vini: React.FC = () => {
           ))}
         </Swiper>
       </div>
+      <div className="mb-16 bg-blue-50/70 dark:bg-gray-700/50 p-6 rounded-xl max-w-2xl mx-auto">
+        <h2 className="text-xl font-semibold mb-4 text-blue-500">💌 Uma cartinha com a minha voz</h2>
+        <button
+          onClick={() => {
+            if (!(window as any).vozTocando) {
+              const audioVoz = new Audio("https://vini.s-ul.eu/PmEMER5K");
+              audioVoz.play()
+                .then(() => {
+                  (window as any).vozAudio = audioVoz;
+                  (window as any).vozTocando = true;
+                })
+                .catch((e) => console.error("Erro ao tocar áudio da carta:", e));
+            } else {
+              const audioVoz = (window as any).vozAudio;
+              if (audioVoz) {
+                audioVoz.pause();
+                audioVoz.currentTime = 0;
+              }
+              (window as any).vozTocando = false;
+            }
+          }}
+          className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500 transition"
+        >
+          💬 Tocar / Parar carta com voz
+        </button>
+      </div>
 
-      {/* Frases especiais com estilo máquina de escrever */}
-      <div className="mb-20 bg-pink-100/70 dark:bg-gray-800/50 p-6 rounded-2xl max-w-3xl mx-auto shadow-inner">
-        <h3 className="text-4xl font-extrabold text-center text-pink-600 mb-2 drop-shadow-md">
+      <div className="mb-16 bg-pink-50 dark:bg-gray-800/50 p-6 rounded-2xl max-w-3xl mx-auto">
+        <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2 drop-shadow-md">
           ✨ Nossas frases engraçadas e fofas ✨
         </h3>
-        <p className="text-center text-lg text-gray-700 dark:text-gray-300 mb-6 font-mono italic">Aquelas que só a gente entende 😄</p>
+        <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">Aquelas que só a gente entende 😄</p>
         <FrasesCarousel />
       </div>
 
+      <div className="mb-16">
+        <h2 className="text-2xl font-semibold text-pink-600 mb-4">🎁 Vídeo Surpresa Especial</h2>
+        <div className="bg-white/80 dark:bg-gray-800/40 p-6 rounded-xl shadow-md max-w-xl mx-auto">
+          <p className="text-lg text-gray-800 dark:text-gray-200 mb-4">Esse vídeo é uma lembrança linda do nosso amor 💖</p>
+          <a
+            href="https://drive.google.com/file/d/1pf0AOWCbL0F7U9s6WJqg1ubTVMzKGVuC/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-pink-500 text-white px-5 py-3 rounded-full hover:bg-pink-600 transition"
+          >
+            📺 Assistir ao vídeo da surpresa no Drive
+          </a>
+        </div>
+      </div>
+
+      <div className="mb-20 max-w-3xl mx-auto bg-yellow-50/60 dark:bg-gray-700/50 p-6 rounded-2xl">
+        <h2 className="text-xl font-medium mb-4">🌙 Imagem da lua no dia do pedido 💫</h2>
+        <img
+          src="https://i.imgur.com/m4e2ody.png"
+          alt="Lua do dia do pedido"
+          className="rounded-2xl mx-auto max-w-xs"
+        />
+        <p className="text-lg text-gray-700 mt-4 dark:text-gray-200">
+          <strong className="text-xl">Fase da Lua: 11 de abril de 2024</strong><br />
+          Neste dia, a Lua estava na fase Crescente. É melhor visualizada no oeste, após o pôr do sol.
+          A Lua está próxima do Sol no céu e permanece em grande parte escura, exceto pela borda direita,
+          que vai ficando mais iluminada à medida que os dias avançam para a próxima fase.
+        </p>
+      </div>
+      {/* Versículos dedicados */}
       <section className="mt-16 px-6">
-        <div className="max-w-4xl mx-auto space-y-8 text-center bg-orange-100/60 dark:bg-orange-900/40 p-6 rounded-2xl">
-          <h2 className="text-4xl font-bold text-[#5a4635] font-playfair">
+        <div className="max-w-4xl mx-auto space-y-8 text-center bg-pink-100/60 dark:bg-gray-800/40 p-8 rounded-2xl">
+          <h2 className="text-4xl font-bold text-[#5a4635] dark:text-yellow-200 font-playfair mb-2">
             Versículos que Eu Te Dedico
           </h2>
           <VersiculosLivro />
         </div>
       </section>
 
-      <div className="my-16 bg-green-100/70 dark:bg-green-900/40 p-6 rounded-2xl max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold text-orange-600 mb-4">🎶 Nossa playlist 💿</h2>
+      {/* Playlist com destaque */}
+      <div className="my-16 max-w-3xl mx-auto bg-green-100/60 dark:bg-gray-800/40 p-8 rounded-2xl">
+        <h2 className="text-2xl font-bold text-orange-500 mb-4 text-center">🎶 Nossa playlist 💿</h2>
         <iframe
           src="https://open.spotify.com/embed/playlist/6z1hjOuRdMiy283EkpIyOA?utm_source=generator"
           width="100%"
@@ -127,6 +183,7 @@ const Vini: React.FC = () => {
         ></iframe>
       </div>
 
+      {/* Frase final com animação */}
       <motion.div
         className="text-2xl font-bold text-orange-600 mt-10 mb-6"
         initial={{ opacity: 0 }}
@@ -136,7 +193,8 @@ const Vini: React.FC = () => {
         Feliz 1 ano, minha neneca. Eu e você, você e eu, sempre! Eu te amo 💓
       </motion.div>
 
-      <footer className="mt-10 py-6 bg-white bg-opacity-80 backdrop-blur border-t border-gray-300 text-center text-sm text-gray-600 rounded-t-xl">
+      {/* Rodapé */}
+      <footer className="mt-10 py-6 bg-white bg-opacity-80 backdrop-blur border-t border-gray-300 text-center text-sm text-gray-600 dark:text-gray-300 dark:bg-gray-800/60 rounded-t-xl">
         Feito com muito amor por você 💖 | © {new Date().getFullYear()} Vini & Neneca
       </footer>
     </div>
