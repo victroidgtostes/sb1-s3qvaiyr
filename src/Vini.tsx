@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import FrasesCarousel from './components/FrasesCarousel';
+import Versiculos from "./components/Versiculos"
 
 const Vini: React.FC = () => {
   const [since, setSince] = useState({
@@ -258,6 +259,8 @@ const Vini: React.FC = () => {
           Neste dia, a Lua estava na fase Crescente. É melhor visualizada no oeste, após o pôr do sol, quando o sol já se pôs no horizonte. Essa é a primeira fase após a Lua Nova e é um ótimo momento para observar os detalhes da superfície lunar. A Lua está próxima do Sol no céu e permanece em grande parte escura, exceto pela borda direita, que vai ficando mais iluminada à medida que os dias avançam para a próxima fase, que é o Quarto Crescente, com 50% de iluminação.
         </p>
       </div>
+
+      <Versiculos />
 
       {/* Playlist */}
       <div className="mb-10">
