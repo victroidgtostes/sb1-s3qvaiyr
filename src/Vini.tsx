@@ -99,9 +99,48 @@ const Vini: React.FC = () => {
       <div className="max-w-xl mx-auto bg-blue-100/70 dark:bg-blue-900/30 rounded-2xl shadow-lg p-6 mb-16 backdrop-blur-md">
         <h2 className="text-3xl font-semibold text-orange-400 mb-6 text-center">
           Nossa Linha do Tempo 💖
-        </h2>
+       </h2>
         <div className="border-l-4 border-orange-300 dark:border-orange-500 pl-4 space-y-6">
-          {/* (Conteúdo da linha do tempo foi restaurado aqui) */}
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">01/07/2021</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nossa Primeira Conversa 💬</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">09/07/2021</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Dia Que Nos Conhecemos 👀</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">15/11/2021</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Primeiro Rolê 🎡</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">22/01/2024</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Primeiro Beijo 💋</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">11/04/2024</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Começo 💞</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-green-400 dark:bg-green-600 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">11/04/2025</p>
+            <p className="text-base text-green-800 dark:text-green-300">Nosso 1 Ano de Namoro 🎉</p>
+          </div>
+          <div className="relative opacity-50 italic">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-500 font-semibold">??/??/2025</p>
+            <p className="text-base text-gray-600">Pedido de Casamento 💍 (em breve...)</p>
+          </div>
+          <div className="relative opacity-50 italic">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-500 font-semibold">??/??/2026</p>
+            <p className="text-base text-gray-600">Dia do Casamento 💒 (em breve...)</p>
+          </div>
         </div>
       </div>
 
