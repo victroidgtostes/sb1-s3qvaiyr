@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./FrasesCarousel.css";
-import FrasesCarousel from './components/FrasesCarousel';
+import FrasesCarousel from './components/FrasesCarousel.tsx';
 
 const FrasesCarousel = () => {
   const [typedText, setTypedText] = useState("");
