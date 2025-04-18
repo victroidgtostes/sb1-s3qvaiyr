@@ -221,6 +221,8 @@ const Vini: React.FC = () => {
   </button>
 </div>
 
+      <FrasesCarousel />
+
       {/* Mapa simbólico */}
       <div className="mb-10">
         <h2 className="text-xl font-semibold mb-2">📍 Onde tudo começou</h2>
