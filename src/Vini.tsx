@@ -15,50 +15,6 @@ import "swiper/css/pagination";
 import "./FrasesCarousel.css";
 import FrasesCarousel from './components/FrasesCarousel.tsx';
 
-const FrasesCarousel = () => {
-  const [typedText, setTypedText] = useState("");
-  const [currentFrase, setCurrentFrase] = useState(0);
-
-  useEffect(() => {
-    let i = 0;
-    setTypedText("");
-    const frase = frases[currentFrase];
-
-    const typing = setInterval(() => {
-      setTypedText((prev) => prev + frase[i]);
-      i++;
-      if (i === frase.length) clearInterval(typing);
-    }, 50);
-
-    return () => clearInterval(typing);
-  }, [currentFrase]);
-
-  return (
-    <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 mb-10">
-      <h2 className="text-2xl font-bold text-center text-orange-500 mb-4">Nossas frases favoritas 💬</h2>
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
-        loop={true}
-        onSlideChange={(swiper) => setCurrentFrase(swiper.realIndex)}
-        className="rounded-xl"
-      >
-        {frases.map((frase, index) => (
-          <SwiperSlide key={index}>
-            <blockquote className="text-center text-xl font-mono text-gray-700 typing-effect">
-              {index === currentFrase ? typedText : "\u00a0"}
-            </blockquote>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-};
-
-export default FrasesCarousel;
-
 const Vini: React.FC = () => {
   const [since, setSince] = useState({
     days: 0,
@@ -118,7 +74,6 @@ const Vini: React.FC = () => {
   return (
     <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden text-[20px]">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
-      <FrasesCarousel />
 
       {/* Carrossel estilo Polaroid */}
       <div className="max-w-2xl mx-auto mb-8">
