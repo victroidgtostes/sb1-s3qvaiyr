@@ -138,30 +138,32 @@ const Vini: React.FC = () => {
       </div>
 
       {/* Botão da música */}
-     <div className="mb-6">
+<div className="mb-6">
   <button
     onClick={() => {
-      if (!showMusic) {
-        const audioEl = new Audio("https://vini.s-ul.eu/vsh1eBEQ");
-        audioEl.play()
-          .then(() => {
-            setShowMusic(true);
-            // Guarda a referência global se quiser parar depois
-            (window as any).nossaMusicaAudio = audioEl;
-          })
+      if (!(window as any).musicaAudio) {
+        const audio = new Audio("https://vini.s-ul.eu/vsh1eBEQ"); // link original mantido
+        audio.loop = true;
+        audio.volume = 0.6;
+        (window as any).musicaAudio = audio;
+      }
+
+      const audio = (window as any).musicaAudio;
+
+      if (audio.paused) {
+        audio.play()
+          .then(() => setShowMusic(true))
           .catch((e) => console.error("Erro ao tocar música:", e));
       } else {
-        const audioEl = (window as any).nossaMusicaAudio;
-        if (audioEl) {
-          audioEl.pause();
-          audioEl.currentTime = 0;
-        }
+        audio.pause();
         setShowMusic(false);
       }
     }}
-    className="text-white bg-orange-400 px-4 py-2 rounded-full shadow-lg hover:bg-orange-500"
+    className={`text-white px-4 py-2 rounded-full shadow-lg transition ${
+      showMusic ? "bg-red-500 hover:bg-red-600" : "bg-orange-400 hover:bg-orange-500"
+    }`}
   >
-    🎵 Nossa música
+    {showMusic ? "⏸️ Pausar música" : "🎵 Nossa música"}
   </button>
   {showMusic && <p className="mt-2 text-sm">Tocando: música especial 💗</p>}
 </div>
