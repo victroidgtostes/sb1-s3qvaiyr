@@ -263,7 +263,7 @@ const Vini: React.FC = () => {
       {/* Versículos que eu te dedico */}
 <section className="mt-12 px-6">
   <div className="bg-[#A1866F] rounded-2xl shadow-lg max-w-3xl mx-auto p-8 text-white text-center space-y-6 border border-[#8b6e58] font-playfair">
-    <h2 className="text-2xl font-bold tracking-wide">Versículos que nos Inspiram</h2>
+    <h2 className="text-2xl font-bold tracking-wide">Versículos que Eu Te Dedico</h2>
 
     <div className="space-y-4 text-lg font-light">
       <p className="italic">
