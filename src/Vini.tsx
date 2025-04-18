@@ -165,7 +165,7 @@ const Vini: React.FC = () => {
   <button
     onClick={() => {
       if (!showMusic) {
-        const audioEl = new Audio("https://vini.s-ul.eu/PmEMER5K");
+        const audioEl = new Audio("https://vini.s-ul.eu/vsh1eBEQ");
         audioEl.play()
           .then(() => {
             setShowMusic(true);
