@@ -221,8 +221,17 @@ const Vini: React.FC = () => {
   </button>
 </div>
 
-      <FrasesCarousel />
-
+{/* Frases engraçadas e fofas */}
+<div className="mb-10">
+  <h3 className="text-2xl font-bold text-center text-pink-500 mb-2">
+    ✨ Nossas frases engraçadas e fofas ✨
+  </h3>
+  <p className="text-center text-sm text-gray-500 mb-4">
+    Aquelas que só a gente entende 😄
+  </p>
+  <FrasesCarousel />
+</div>
+      
       {/* Mapa simbólico */}
       <div className="mb-10">
         <h2 className="text-xl font-semibold mb-2">📍 Onde tudo começou</h2>
