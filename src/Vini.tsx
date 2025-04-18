@@ -5,10 +5,36 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import FrasesCarousel from './components/FrasesCarousel';
-import VersiculosLivro from "./components/VersiculosLivro";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import FrasesCarousel from "./components/FrasesCarousel";
+
+const versiculos = [
+  {
+    texto: "“O amor tudo sofre, tudo crê, tudo espera, tudo suporta.”",
+    referencia: "1 Coríntios 13:7",
+  },
+  {
+    texto: "“Em Deus confio e não temerei.”",
+    referencia: "Salmos 56:11",
+  },
+  {
+    texto: "“Dou graças ao meu Deus todas as vezes que me lembro de vocês.”",
+    referencia: "Filipenses 1:3",
+  },
+  {
+    texto: "“Portanto, o que Deus uniu, ninguém separe.”",
+    referencia: "Marcos 10:9",
+  },
+  {
+    texto: "“Foi por este menino que oramos, e o Senhor atendeu a nossa súplica.”",
+    referencia: "1 Samuel 1:27",
+  },
+];
 
 const Vini: React.FC = () => {
+  const [index, setIndex] = useState(0);
+  const atual = versiculos[index];
+
   const [since, setSince] = useState({
     days: 0,
     weeks: 0,
@@ -21,12 +47,6 @@ const Vini: React.FC = () => {
   const [showMusic, setShowMusic] = useState(false);
   const [music] = useState<HTMLAudioElement>(
     new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3")
-  );
-  const [audio] = useState<HTMLAudioElement>(
-    new Audio("https://cdn.jmp.sh/LRjKV8V4")
-  );
-  const [voice] = useState<HTMLAudioElement>(
-    new Audio("https://cdn.jmp.sh/ozbOB9i4")
   );
 
   useEffect(() => {
@@ -62,9 +82,9 @@ const Vini: React.FC = () => {
     "https://i.imgur.com/o4NLM8N.jpeg",
     "https://i.imgur.com/xmYYEv6.jpeg",
   ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-center text-gray-800 dark:text-gray-100 transition-colors duration-500">
-      {/* Título principal com cintilação */}
       <motion.h1
         className="text-5xl font-bold mb-10 text-orange-500 drop-shadow-lg animate-pulse"
         initial={{ opacity: 0 }}
@@ -74,7 +94,6 @@ const Vini: React.FC = () => {
         Vini 💙
       </motion.h1>
 
-      {/* Carrossel de fotos estilo Polaroid */}
       <div className="max-w-2xl mx-auto mb-12 px-4">
         <Swiper
           modules={[Navigation, Pagination]}
@@ -97,7 +116,6 @@ const Vini: React.FC = () => {
         </Swiper>
       </div>
 
-      {/* Linha do tempo */}
       <div className="max-w-xl mx-auto bg-white/90 dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-16 backdrop-blur-md">
         <h2 className="text-3xl font-semibold text-orange-400 mb-6 text-center">
           Nossa Linha do Tempo 💖
@@ -145,6 +163,7 @@ const Vini: React.FC = () => {
           </div>
         </div>
       </div>
+
       {/* Botão da música */}
       <div className="mb-10">
         <button
@@ -225,7 +244,6 @@ const Vini: React.FC = () => {
           💬 Tocar / Parar carta com voz
         </button>
       </div>
-
       {/* Frases especiais */}
       <div className="mb-20">
         <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2 drop-shadow-md">
@@ -234,6 +252,7 @@ const Vini: React.FC = () => {
         <p className="text-center text-lg text-gray-600 mb-6">Aquelas que só a gente entende 😄</p>
         <FrasesCarousel />
       </div>
+
       {/* Mapa simbólico */}
       <div className="mb-20">
         <h2 className="text-xl font-semibold mb-4">📍 Onde tudo começou</h2>
@@ -263,18 +282,46 @@ const Vini: React.FC = () => {
         </p>
       </div>
 
-      {/* Versículos */}
-      <section className="mt-16 px-6">
+      {/* Versículos que Eu Te Dedico */}
+      <section className="mt-16 px-6 pb-24">
         <div className="max-w-4xl mx-auto space-y-8 text-center">
           <h2 className="text-4xl font-bold text-[#5a4635] font-playfair">
             Versículos que Eu Te Dedico
           </h2>
-          <VersiculosLivro />
+
+          <div className="relative bg-[#7b5e47] text-[#fdf8f1] rounded-2xl shadow-[inset_0_0_20px_rgba(0,0,0,0.4)] p-10 min-h-[260px] max-w-3xl mx-auto flex flex-col items-center justify-center font-playfair transition-all duration-300">
+            <p className="text-xl italic text-center leading-relaxed max-w-xl">
+              {atual.texto}
+            </p>
+            <span className="mt-4 text-sm font-semibold tracking-wider">
+              — {atual.referencia}
+            </span>
+
+            <div className="absolute inset-y-0 left-4 flex items-center">
+              <button
+                onClick={() =>
+                  setIndex((prev) => (prev - 1 + versiculos.length) % versiculos.length)
+                }
+                className="bg-[#fdf8f1] text-[#7b5e47] p-2 rounded-full shadow hover:bg-[#f1e7db] transition"
+              >
+                <ChevronLeft size={22} />
+              </button>
+            </div>
+            <div className="absolute inset-y-0 right-4 flex items-center">
+              <button
+                onClick={() =>
+                  setIndex((prev) => (prev + 1) % versiculos.length)
+                }
+                className="bg-[#fdf8f1] text-[#7b5e47] p-2 rounded-full shadow hover:bg-[#f1e7db] transition"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
-
       {/* Playlist */}
-      <div className="my-16">
+      <div className="my-24">
         <h2 className="text-xl font-semibold text-orange-500 mb-4">🎶 Nossa playlist 💿</h2>
         <iframe
           src="https://open.spotify.com/embed/playlist/6z1hjOuRdMiy283EkpIyOA?utm_source=generator"
