@@ -4,7 +4,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./FrasesCarousel.css";
+import "./FrasesCarousel.css"; // certifique-se de ter esse arquivo
 
 const frases: string[] = [
   "Eu te amo a cada batida do meu coração",
@@ -68,6 +68,7 @@ const FrasesCarousel = () => {
 
     let i = 0;
     setTypedText("");
+
     const typing = setInterval(() => {
       setTypedText((prev) => {
         const nextChar = fraseAtual[i];
@@ -81,20 +82,23 @@ const FrasesCarousel = () => {
   }, [currentFrase]);
 
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-md p-6 mb-10">
+    <div className="max-w-4xl mx-auto relative p-6 mb-20">
+      {/* Emojis flutuantes de fundo */}
+      <div className="absolute inset-0 z-0 pointer-events-none animate-float opacity-10 text-6xl">
+        💬 💞 ✨ 💭 💕 😄 💌 🫶
+      </div>
+
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
         loop={true}
         onSlideChange={(swiper) => setCurrentFrase(swiper.realIndex)}
-        className="rounded-xl"
+        className="rounded-xl z-10 relative"
       >
         {frases.map((frase, index) => (
           <SwiperSlide key={index}>
-           <blockquote className="backdrop-blur-sm bg-white/30 border border-white/40 shadow-xl rounded-2xl p-8 text-center text-2xl font-mono text-gray-900 min-h-[16rem] flex items-center justify-center">
-  {index === currentFrase ? typedText : ""}
-</blockquote>
+            <blockquote className="bg-white/40 border border-pink-300 shadow-2xl rounded-3xl p-10 text-center text-2xl font-mono text-pink-800 min-h-[20rem] flex items-center justify-center backdrop-blur-md animate-slide-in transition-all duration-500 ease-in-out">
               {index === currentFrase ? typedText : ""}
             </blockquote>
           </SwiperSlide>
