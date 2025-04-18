@@ -142,7 +142,7 @@ const Vini: React.FC = () => {
   <button
     onClick={() => {
       if (!showMusic) {
-        const audioEl = new Audio("https://vini.s-ul.eu/PmEMER5K");
+        const audioEl = new Audio("https://vini.s-ul.eu/vsh1eBEQ");
         audioEl.play()
           .then(() => {
             setShowMusic(true);
@@ -193,14 +193,31 @@ const Vini: React.FC = () => {
 
       {/* Carta com voz */}
       <div className="mb-10">
-        <h2 className="text-xl font-semibold mb-2">💌 Uma cartinha com a minha voz</h2>
-        <button
-          onClick={() => voice.play()}
-          className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500"
-        >
-          ▶️ Ouvir mensagem
-        </button>
-      </div>
+  <h2 className="text-xl font-semibold mb-2">💌 Uma cartinha com a minha voz</h2>
+  <button
+    onClick={() => {
+      if (!(window as any).vozTocando) {
+        const audioVoz = new Audio("https://vini.s-ul.eu/PmEMER5K");
+        audioVoz.play()
+          .then(() => {
+            (window as any).vozAudio = audioVoz;
+            (window as any).vozTocando = true;
+          })
+          .catch((e) => console.error("Erro ao tocar áudio da carta:", e));
+      } else {
+        const audioVoz = (window as any).vozAudio;
+        if (audioVoz) {
+          audioVoz.pause();
+          audioVoz.currentTime = 0;
+        }
+        (window as any).vozTocando = false;
+      }
+    }}
+    className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500"
+  >
+    💬 Tocar / Parar carta com voz
+  </button>
+</div>
 
       {/* Mapa simbólico */}
       <div className="mb-10">
