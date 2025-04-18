@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import FrasesCarousel from './components/FrasesCarousel';
 import VersiculosLivro from "./components/VersiculosLivro";
+import './styles/global.css';
 
 // Função principal do componente Vini
 const Vini: React.FC = () => {
