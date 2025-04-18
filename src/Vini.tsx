@@ -5,7 +5,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./FrasesCarousel.css";
 import FrasesCarousel from './components/FrasesCarousel';
 
 const Vini: React.FC = () => {
