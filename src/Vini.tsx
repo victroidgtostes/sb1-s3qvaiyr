@@ -169,6 +169,31 @@ const Vini: React.FC = () => {
           }}
           className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500 transition"
         >
+
+          // Seção do Vídeo Surpresa no Drive
+<div className="mb-16">
+  <button
+    onClick={() => setShowSurprise(true)}
+    className="bg-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-pink-600 transition"
+  >
+    🎁 Clique para uma surpresa!
+  </button>
+  {showSurprise && (
+    <div className="mt-6">
+      <p className="text-lg font-semibold mb-2 text-pink-700">🌸 Te amo além das palavras 🌸</p>
+      <a
+        href="https://drive.google.com/file/d/1pf0AOWCbL0F7U9s6WJqg1ubTVMzKGVuC/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
+      >
+        📺 Assistir ao vídeo da surpresa no Drive
+      </a>
+      <div className="text-3xl mt-4 animate-pulse">🎆🌺🍍✨</div>
+    </div>
+  )}
+</div>
+
           💬 Tocar / Parar carta com voz
         </button>
       </div>
@@ -194,6 +219,19 @@ const Vini: React.FC = () => {
           que vai ficando mais iluminada à medida que os dias avançam para a próxima fase.
         </p>
       </div>
+
+      // Seção do Mapa
+<div className="mb-20">
+  <h2 className="text-xl font-semibold mb-4">📍 Onde tudo começou</h2>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.0113663887616!2d-40.316207!3d-20.3658066"
+    width="100%"
+    height="300"
+    className="rounded-2xl mx-auto border"
+    allowFullScreen
+    loading="lazy"
+  ></iframe>
+</div>
 
       <section className="mt-16 px-6">
         <div className="max-w-4xl mx-auto space-y-8 text-center">
