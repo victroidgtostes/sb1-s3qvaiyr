@@ -15,7 +15,11 @@ const Vini: React.FC = () => {
     hours: 0,
     minutes: 0,
   });
-
+  
+const cartaAudioRef = useRef<HTMLAudioElement | null>(null);
+const [isVoicePlaying, setIsVoicePlaying] = useState(false);
+const [voiceProgress, setVoiceProgress] = useState(0);
+const [voiceDuration, setVoiceDuration] = useState(0);
   const [moonImage, setMoonImage] = useState<string | null>(null);
   const [music] = useState<HTMLAudioElement>(
     new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3")
@@ -30,6 +34,20 @@ const Vini: React.FC = () => {
   );
 
   useEffect(() => {
+    useEffect(() => {
+  let interval: any;
+
+  if (isVoicePlaying && cartaAudioRef.current) {
+    const audio = cartaAudioRef.current;
+
+    interval = setInterval(() => {
+      setVoiceProgress(audio.currentTime);
+      setVoiceDuration(audio.duration || 0);
+    }, 200);
+  }
+
+  return () => clearInterval(interval);
+}, [isVoicePlaying]);
     const startDate = new Date("2024-04-11T00:00:00");
     const updateCounter = () => {
       const now = new Date();
@@ -194,29 +212,49 @@ const Vini: React.FC = () => {
       {/* Carta com voz */}
       <div className="mb-10">
   <h2 className="text-xl font-semibold mb-2">💌 Uma cartinha com a minha voz</h2>
+
   <button
     onClick={() => {
-      if (!(window as any).vozTocando) {
-        const audioVoz = new Audio("https://vini.s-ul.eu/PmEMER5K");
-        audioVoz.play()
-          .then(() => {
-            (window as any).vozAudio = audioVoz;
-            (window as any).vozTocando = true;
-          })
-          .catch((e) => console.error("Erro ao tocar áudio da carta:", e));
+      if (!cartaAudioRef.current) {
+        cartaAudioRef.current = new Audio("https://vini.s-ul.eu/vsh1eBEQ");
+        cartaAudioRef.current.addEventListener("ended", () => {
+          setIsVoicePlaying(false);
+          setVoiceProgress(0);
+        });
+      }
+
+      const audio = cartaAudioRef.current;
+
+      if (audio.paused) {
+        audio.play()
+          .then(() => setIsVoicePlaying(true))
+          .catch(console.error);
       } else {
-        const audioVoz = (window as any).vozAudio;
-        if (audioVoz) {
-          audioVoz.pause();
-          audioVoz.currentTime = 0;
-        }
-        (window as any).vozTocando = false;
+        audio.pause();
+        setIsVoicePlaying(false);
       }
     }}
-    className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500"
+    className={`flex items-center gap-2 text-white px-4 py-2 rounded-full transition shadow-md ${
+      isVoicePlaying ? "bg-red-500 hover:bg-red-600" : "bg-blue-400 hover:bg-blue-500"
+    }`}
   >
-    💬 Tocar / Parar carta com voz
+    {isVoicePlaying ? "⏸️ Pausar" : "▶️ Ouvir"} carta com voz
   </button>
+
+  {/* Barra de progresso */}
+  {isVoicePlaying && (
+    <div className="w-full max-w-md mx-auto mt-4">
+      <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-orange-400 transition-all duration-200"
+          style={{ width: `${(voiceProgress / voiceDuration) * 100 || 0}%` }}
+        ></div>
+      </div>
+      <p className="text-xs text-gray-600 mt-1">
+        {Math.floor(voiceProgress)}s / {Math.floor(voiceDuration)}s
+      </p>
+    </div>
+  )}
 </div>
 
       {/* Mapa simbólico */}
