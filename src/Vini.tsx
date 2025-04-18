@@ -147,34 +147,39 @@ const Vini: React.FC = () => {
       </div>
 
       <div className="mb-16 bg-blue-50/70 dark:bg-gray-700/50 p-6 rounded-xl max-w-2xl mx-auto">
-        <h2 className="text-xl font-semibold mb-4 text-blue-500">💌 Uma cartinha com a minha voz</h2>
-        <button
-          onClick={() => {
-            if (!(window as any).vozTocando) {
-              const audioVoz = new Audio("https://vini.s-ul.eu/PmEMER5K");
-              audioVoz.play()
-                .then(() => {
-                  (window as any).vozAudio = audioVoz;
-                  (window as any).vozTocando = true;
-                })
-                .catch((e) => console.error("Erro ao tocar áudio da carta:", e));
-            } else {
-              const audioVoz = (window as any).vozAudio;
-              if (audioVoz) {
-                audioVoz.pause();
-                audioVoz.currentTime = 0;
-              }
-              (window as any).vozTocando = false;
-            }
-          }}
-          className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500 transition"
-        >
+        <h2 className="text-xl font-semibold mb-4 text-blue-500">// Seção Uma cartinha com a minha voz
+<div className="mb-16 bg-blue-100/70 dark:bg-blue-700/50 p-6 rounded-xl max-w-2xl mx-auto">
+  <h2 className="text-xl font-semibold mb-4 text-blue-500">💌 Uma cartinha com a minha voz</h2>
+  <button
+    onClick={() => {
+      if (!(window as any).vozTocando) {
+        const audioVoz = new Audio("https://vini.s-ul.eu/PmEMER5K");
+        audioVoz.play()
+          .then(() => {
+            (window as any).vozAudio = audioVoz;
+            (window as any).vozTocando = true;
+          })
+          .catch((e) => console.error("Erro ao tocar áudio da carta:", e));
+      } else {
+        const audioVoz = (window as any).vozAudio;
+        if (audioVoz) {
+          audioVoz.pause();
+          audioVoz.currentTime = 0;
+        }
+        (window as any).vozTocando = false;
+      }
+    }}
+    className="text-white bg-blue-400 px-4 py-2 rounded-full hover:bg-blue-500 transition"
+  >
+    💬 Tocar / Parar carta com voz
+  </button>
+</div>
 
-          // Seção do Vídeo Surpresa no Drive
-<div className="mb-16">
+         // Seção vídeo no Drive
+<div className="mb-16 bg-pink-100/60 dark:bg-pink-700/50 p-6 rounded-xl max-w-2xl mx-auto">
   <button
     onClick={() => setShowSurprise(true)}
-    className="bg-pink-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-pink-600 transition"
+    className="bg-pink-400 text-white px-4 py-2 rounded-full hover:bg-pink-500"
   >
     🎁 Clique para uma surpresa!
   </button>
@@ -199,13 +204,15 @@ const Vini: React.FC = () => {
       </div>
 
       <div className="mb-20 bg-pink-50 dark:bg-gray-800/50 p-6 rounded-2xl max-w-3xl mx-auto">
-        <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2 drop-shadow-md">
-          ✨ Nossas frases engraçadas e fofas ✨
-        </h3>
-        <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">Aquelas que só a gente entende 😄</p>
-        <FrasesCarousel />
-      </div>
-      <div className="mb-20 max-w-3xl mx-auto bg-yellow-50/60 dark:bg-gray-700/50 p-6 rounded-2xl">
+        <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2 drop-shadow-md"> Seção Nossas frases engraçadas e fofas
+<div className="mb-20 bg-pink-100/60 dark:bg-pink-700/50 p-6 rounded-2xl max-w-3xl mx-auto">
+  <h3 className="text-4xl font-extrabold text-center text-pink-500 mb-2 drop-shadow-md">
+    ✨ Nossas frases engraçadas e fofas ✨
+  </h3>
+  <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">Aquelas que só a gente entende 😄</p>
+  <FrasesCarousel />
+</div>
+
         <h2 className="text-xl font-medium mb-4">🌙 Imagem da lua no dia do pedido 💫</h2>
         <img
           src="https://i.imgur.com/m4e2ody.png"
@@ -244,16 +251,19 @@ const Vini: React.FC = () => {
 
       <div className="my-16">
         <h2 className="text-xl font-semibold text-orange-500 mb-4">🎶 Nossa playlist 💿</h2>
-        <iframe
-          src="https://open.spotify.com/embed/playlist/6z1hjOuRdMiy283EkpIyOA?utm_source=generator"
-          width="100%"
-          height="152"
-          frameBorder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          className="rounded-xl mx-auto"
-        ></iframe>
-      </div>
+<div className="my-16 bg-green-100/60 dark:bg-green-700/50 p-6 rounded-xl mx-auto max-w-3xl">
+  <h2 className="text-xl font-semibold text-orange-500 mb-4">🎶 Nossa playlist 💿</h2>
+  <iframe
+    src="https://open.spotify.com/embed/playlist/6z1hjOuRdMiy283EkpIyOA?utm_source=generator"
+    width="100%"
+    height="152"
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+    className="rounded-xl mx-auto"
+  ></iframe>
+</div>
+
 
       <motion.div
         className="text-2xl font-bold text-orange-600 mt-10 mb-6"
