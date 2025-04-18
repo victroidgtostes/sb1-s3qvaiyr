@@ -68,14 +68,16 @@ const FrasesCarousel = () => {
       setTypedText((prev) => prev + frase[i]);
       i++;
       if (i === frase.length) clearInterval(typing);
-    }, 50);
+    }, 40);
 
     return () => clearInterval(typing);
   }, [currentFrase]);
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 mb-10">
-      <h2 className="text-2xl font-bold text-center text-orange-500 mb-4">Nossas frases favoritas 💬</h2>
+      <h2 className="text-2xl font-bold text-center text-orange-500 mb-4">
+        Nossas frases favoritas 💬
+      </h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
@@ -87,8 +89,8 @@ const FrasesCarousel = () => {
       >
         {frases.map((frase, index) => (
           <SwiperSlide key={index}>
-            <blockquote className="text-center text-xl font-mono text-gray-700 typing-effect">
-              {index === currentFrase ? typedText : "\u00a0"}
+            <blockquote className="text-center text-xl font-mono text-gray-700 typing-effect min-h-[3rem]">
+              {index === currentFrase ? typedText : ""}
             </blockquote>
           </SwiperSlide>
         ))}
