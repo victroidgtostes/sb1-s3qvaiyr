@@ -64,7 +64,7 @@ const Vini: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-center text-gray-800 dark:text-gray-100 transition-colors duration-500 scroll-smooth">
+    <div className="min-h-screen text-[22px] bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100 dark:from-gray-900 dark:via-gray-800 dark:to-black text-center text-gray-800 dark:text-gray-100 transition-colors duration-500 scroll-smooth">
       <motion.h1
         className="text-5xl font-bold mb-10 text-orange-500 drop-shadow-lg animate-pulse"
         initial={{ opacity: 0 }}
@@ -100,7 +100,48 @@ const Vini: React.FC = () => {
         <h2 className="text-3xl font-semibold text-orange-400 mb-6 text-center">
           Nossa Linha do Tempo 💖
         </h2>
-        {/* conteúdo mantido */}
+        <div className="border-l-4 border-orange-300 dark:border-orange-500 pl-4 space-y-6">
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">01/07/2021</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nossa Primeira Conversa 💬</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">09/07/2021</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Dia Que Nos Conhecemos 👀</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">15/11/2021</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Primeiro Rolê 🎡</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">22/01/2024</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Primeiro Beijo 💋</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-orange-400 dark:bg-orange-500 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">11/04/2024</p>
+            <p className="text-base text-gray-800 dark:text-gray-200">Nosso Começo 💞</p>
+          </div>
+          <div className="relative">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-green-400 dark:bg-green-600 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-600 dark:text-gray-300 font-semibold">11/04/2025</p>
+            <p className="text-base text-green-800 dark:text-green-300">Nosso 1 Ano de Namoro 🎉</p>
+          </div>
+          <div className="relative opacity-50 italic">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-500 font-semibold">??/??/2025</p>
+            <p className="text-base text-gray-600">Pedido de Casamento 💍 (em breve...)</p>
+          </div>
+          <div className="relative opacity-50 italic">
+            <div className="absolute -left-6 top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
+            <p className="text-sm text-gray-500 font-semibold">??/??/2026</p>
+            <p className="text-base text-gray-600">Dia do Casamento 💒 (em breve...)</p>
+          </div>
+        </div>
       </div>
 
       <div className="mb-16 bg-blue-50/70 dark:bg-gray-700/50 p-6 rounded-xl max-w-2xl mx-auto">
