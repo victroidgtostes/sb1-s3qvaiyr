@@ -146,9 +146,7 @@ const Vini: React.FC = () => {
         </div>
       </div>
 
-      <div className="mb-16 bg-blue-50/70 dark:bg-gray-700/50 p-6 rounded-xl max-w-2xl mx-auto">
-        <h2 className="text-xl font-semibold mb-4 text-blue-500">// Seção Uma cartinha com a minha voz
-<div className="mb-16 bg-blue-100/70 dark:bg-blue-700/50 p-6 rounded-xl max-w-2xl mx-auto">
+     <div className="mb-16 bg-blue-100/70 dark:bg-blue-700/50 p-6 rounded-xl max-w-2xl mx-auto">
   <h2 className="text-xl font-semibold mb-4 text-blue-500">💌 Uma cartinha com a minha voz</h2>
   <button
     onClick={() => {
@@ -175,7 +173,6 @@ const Vini: React.FC = () => {
   </button>
 </div>
 
-         // Seção vídeo no Drive
 <div className="mb-16 bg-pink-100/60 dark:bg-pink-700/50 p-6 rounded-xl max-w-2xl mx-auto">
   <button
     onClick={() => setShowSurprise(true)}
