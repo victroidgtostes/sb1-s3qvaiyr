@@ -221,7 +221,7 @@ const Vini: React.FC = () => {
   </button>
 </div>
 
-{/* Frases engraçadas e fofas */}
+{/* Nossas frases e momentos */}
 <div className="mb-10">
   <h3 className="text-2xl font-bold text-center text-pink-500 mb-2">
     ✨ Nossas frases engraçadas e fofas ✨
