@@ -104,7 +104,7 @@ const Vini: React.FC = () => {
               <div className="bg-white/70 dark:bg-gray-700/70 shadow-xl p-4 rounded-2xl flex flex-col items-center max-w-xs mx-auto transition-all duration-500">
                <img
   src={img}
-  alt={`Foto ${index + 1}`}    // ← envolva em `{``}` para interpolar corretamente
+  alt={`Foto ${index + 1}`} 
   className="w-full h-[320px] object-cover mb-3 rounded-xl"
 />
               </div>
@@ -160,6 +160,59 @@ const Vini: React.FC = () => {
           </div>
         </div>
       </div>
+      
+<div className="mb-6">
+  <button
+    onClick={() => {
+      if (!showMusic) {
+        const audioEl = new Audio("https://vini.s-ul.eu/PmEMER5K");
+        audioEl.play()
+          .then(() => {
+            setShowMusic(true);
+            // Guarda a referência global se quiser parar depois
+            (window as any).nossaMusicaAudio = audioEl;
+          })
+          .catch((e) => console.error("Erro ao tocar música:", e));
+      } else {
+        const audioEl = (window as any).nossaMusicaAudio;
+        if (audioEl) {
+          audioEl.pause();
+          audioEl.currentTime = 0;
+        }
+        setShowMusic(false);
+      }
+    }}
+    className="text-white bg-orange-400 px-4 py-2 rounded-full shadow-lg hover:bg-orange-500"
+  >
+    🎵 Nossa música
+  </button>
+  {showMusic && <p className="mt-2 text-sm">Tocando: música especial 💗</p>}
+</div>
+
+       {/* Botão da surpresa */}
+      <div className="mb-10">
+        <button
+          onClick={() => setShowSurprise(true)}
+          className="bg-pink-400 text-white px-4 py-2 rounded-full hover:bg-pink-500"
+        >
+          🎁 Clique para uma surpresa!
+        </button>
+        {showSurprise && (
+          <div className="mt-6">
+            <p className="text-lg font-semibold mb-2">🌸 Te amo além das palavras 🌸</p>
+            <a
+  href="https://drive.google.com/file/d/1pf0AOWCbL0F7U9s6WJqg1ubTVMzKGVuC/view?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
+>
+  📺 Assistir ao vídeo da surpresa no Drive
+</a>
+
+            <div className="text-3xl mt-4 animate-pulse">🎆🌺🍍✨</div>
+          </div>
+        )}
+      </div>
 
       <div className="mb-16 bg-blue-50/70 dark:bg-gray-700/50 p-6 rounded-xl max-w-2xl mx-auto">
         <h2 className="text-xl font-semibold mb-4 text-blue-500">💌 Uma cartinha com a minha voz</h2>
@@ -209,6 +262,19 @@ const Vini: React.FC = () => {
           A Lua está próxima do Sol no céu e permanece em grande parte escura, exceto pela borda direita,
           que vai ficando mais iluminada à medida que os dias avançam para a próxima fase.
         </p>
+      </div>
+      
+ {/* Mapa simbólico */}
+      <div className="mb-10">
+        <h2 className="text-xl font-semibold mb-2">📍 Onde tudo começou</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.0113663887616!2d-40.316207!3d-20.3658066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb83f85759bca2f%3A0x598be803d66b887b!2sCEEMTI%20PROF.%20MAURA%20ABAURRE!5e0!3m2!1spt-BR!2sbr!4v1712691878004!5m2!1spt-BR!2sbr"
+          width="100%"
+          height="300"
+          className="rounded-2xl mx-auto"
+          allowFullScreen
+          loading="lazy"
+        ></iframe>
       </div>
 
       <section className="mt-16 px-6">
