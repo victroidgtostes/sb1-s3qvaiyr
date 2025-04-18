@@ -61,35 +61,40 @@ const FrasesCarousel = () => {
 
   useEffect(() => {
     const frase = frases[currentFrase];
-    if (!frase) return;
+    if (!frase) {
+      setTypedText(""); // segurança extra
+      return;
+    }
 
     let i = 0;
     setTypedText("");
+
     const typing = setInterval(() => {
-      setTypedText((prev) => {
-        const nextChar = frase[i];
-        i++;
-        if (i > frase.length) clearInterval(typing);
-        return prev + nextChar;
-      });
+      if (i >= frase.length) {
+        clearInterval(typing);
+        return;
+      }
+
+      setTypedText((prev) => prev + frase[i]);
+      i++;
     }, 40);
 
     return () => clearInterval(typing);
   }, [currentFrase]);
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 mb-10">
+    <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-md p-6 mb-10">
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
-        loop={true} // permite voltar para a primeira frase depois da última
+        loop={true}
         onSlideChange={(swiper) => setCurrentFrase(swiper.realIndex)}
         className="rounded-xl"
       >
         {frases.map((frase, index) => (
           <SwiperSlide key={index}>
-            <blockquote className="text-center text-xl font-mono text-gray-700 typing-effect min-h-[7rem] flex items-center justify-center">
+            <blockquote className="text-center text-2xl font-mono text-gray-700 typing-effect min-h-[10rem] flex items-center justify-center px-4">
               {index === currentFrase ? typedText : ""}
             </blockquote>
           </SwiperSlide>
