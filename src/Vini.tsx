@@ -102,11 +102,11 @@ const Vini: React.FC = () => {
           {gallery.map((img, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white/70 dark:bg-gray-700/70 shadow-xl p-4 rounded-2xl flex flex-col items-center max-w-xs mx-auto transition-all duration-500">
-                <img
-                  src={img}
-                  alt={Foto ${index + 1}}
-                  className="w-full h-[320px] object-cover mb-3 rounded-xl"
-                />
+               <img
+  src={img}
+  alt={`Foto ${index + 1}`}    // ← envolva em `{``}` para interpolar corretamente
+  className="w-full h-[320px] object-cover mb-3 rounded-xl"
+/>
               </div>
             </SwiperSlide>
           ))}
