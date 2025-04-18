@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         playfair: ['"Playfair Display"', 'serif'],
+        typewriter: ['"IBM Plex Mono"', 'monospace'], // ✅ nova fonte
       },
     },
   },
