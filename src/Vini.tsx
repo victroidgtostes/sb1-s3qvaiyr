@@ -261,17 +261,15 @@ const Vini: React.FC = () => {
       </div>
 
       {/* Versículos que eu te dedico */}
-<section className="mt-12 px-6">
-  <div className="max-w-2xl mx-auto space-y-6 text-center">
-    <h2 className="text-3xl font-bold text-[#5a4635] font-playfair">
+<section className="mt-16 px-6">
+  <div className="max-w-4xl mx-auto space-y-8 text-center">
+    <h2 className="text-4xl font-bold text-[#5a4635] font-playfair">
       Versículos que Eu Te Dedico
     </h2>
-
     <VersiculosLivro />
   </div>
 </section>
 
-      
       {/* Playlist */}
       <div className="mb-10">
         <h2 className="text-xl font-semibold text-orange-500 mb-2">Nossa playlist 💿</h2>
