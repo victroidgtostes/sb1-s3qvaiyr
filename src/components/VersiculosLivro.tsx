@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Você pode substituir por outros ícones se quiser
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const versiculos = [
   {
@@ -38,32 +38,32 @@ const VersiculosLivro = () => {
   const atual = versiculos[index];
 
   return (
-    <section className="mt-12 px-6">
-      <div className="bg-[#A1866F] rounded-2xl shadow-lg max-w-2xl mx-auto p-8 text-white text-center space-y-6 border border-[#8b6e58] font-playfair transition-all duration-300 ease-in-out">
-        <h2 className="text-2xl font-bold tracking-wide">Versículo do Amor</h2>
+    <div className="relative bg-[#7b5e47] text-[#fdf8f1] rounded-2xl shadow-[inset_0_0_20px_rgba(0,0,0,0.4)] p-10 min-h-[260px] max-w-3xl mx-auto flex flex-col items-center justify-center font-playfair transition-all duration-300">
+      <p className="text-xl italic text-center leading-relaxed max-w-xl">
+        {atual.texto}
+      </p>
+      <span className="mt-4 text-sm font-semibold tracking-wider">
+        — {atual.referencia}
+      </span>
 
-        <div className="text-lg font-light italic min-h-[100px] flex items-center justify-center">
-          <p>{atual.texto}</p>
-        </div>
-
-        <div className="text-sm font-semibold">{atual.referencia}</div>
-
-        <div className="flex justify-center items-center space-x-6 mt-4">
-          <button
-            onClick={anterior}
-            className="bg-white text-[#A1866F] rounded-full p-2 hover:bg-[#f2e7de] transition"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={proximo}
-            className="bg-white text-[#A1866F] rounded-full p-2 hover:bg-[#f2e7de] transition"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
+      {/* Botões de navegação tipo livro */}
+      <div className="absolute inset-y-0 left-4 flex items-center">
+        <button
+          onClick={anterior}
+          className="bg-[#fdf8f1] text-[#7b5e47] p-2 rounded-full shadow hover:bg-[#f1e7db] transition"
+        >
+          <ChevronLeft size={22} />
+        </button>
       </div>
-    </section>
+      <div className="absolute inset-y-0 right-4 flex items-center">
+        <button
+          onClick={proximo}
+          className="bg-[#fdf8f1] text-[#7b5e47] p-2 rounded-full shadow hover:bg-[#f1e7db] transition"
+        >
+          <ChevronRight size={22} />
+        </button>
+      </div>
+    </div>
   );
 };
 
