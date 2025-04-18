@@ -138,24 +138,33 @@ const Vini: React.FC = () => {
       </div>
 
       {/* Botão da música */}
-      <div className="mb-6">
-        <button
-          onClick={() => {
-            audio.pause();
-            audio.currentTime = 0;
-            audio.load();
-            audio.play().then(() => {
-              setShowMusic(true);
-            }).catch((e) => {
-              console.error("Erro ao tocar música:", e);
-            });
-          }}
-          className="text-white bg-orange-400 px-4 py-2 rounded-full shadow-lg hover:bg-orange-500"
-        >
-          🎵 Nossa música
-        </button>
-        {showMusic && <p className="mt-2 text-sm">Tocando: música especial 💗</p>}
-      </div>
+     <div className="mb-6">
+  <button
+    onClick={() => {
+      if (!showMusic) {
+        const audioEl = new Audio("https://vini.s-ul.eu/PmEMER5K");
+        audioEl.play()
+          .then(() => {
+            setShowMusic(true);
+            // Guarda a referência global se quiser parar depois
+            (window as any).nossaMusicaAudio = audioEl;
+          })
+          .catch((e) => console.error("Erro ao tocar música:", e));
+      } else {
+        const audioEl = (window as any).nossaMusicaAudio;
+        if (audioEl) {
+          audioEl.pause();
+          audioEl.currentTime = 0;
+        }
+        setShowMusic(false);
+      }
+    }}
+    className="text-white bg-orange-400 px-4 py-2 rounded-full shadow-lg hover:bg-orange-500"
+  >
+    🎵 Nossa música
+  </button>
+  {showMusic && <p className="mt-2 text-sm">Tocando: música especial 💗</p>}
+</div>
 
       {/* Botão da surpresa */}
       <div className="mb-10">
