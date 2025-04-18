@@ -118,6 +118,7 @@ const Vini: React.FC = () => {
   return (
     <div className="min-h-screen bg-blue-100 p-4 text-center text-gray-800 relative overflow-hidden text-[20px]">
       <h1 className="text-4xl font-bold mb-6 text-orange-500">Vini 💙</h1>
+      <FrasesCarousel />
 
       {/* Carrossel estilo Polaroid */}
       <div className="max-w-2xl mx-auto mb-8">
